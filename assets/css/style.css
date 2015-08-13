@@ -179,6 +179,7 @@ a,
 }
 
 p a { color: #5694f1; }
+	p a:hover { text-decoration:underline; }
 
 .list {
 	margin-bottom:10px;
