@@ -185,12 +185,12 @@ p a { color: #000; }
 	margin-bottom:10px;
 }
 	.list a {
-		color:#333;
-		text-decoration:underline;
+		color:#000;
+		text-decoration:none;
 	}
 		.list a:hover {
 			color: #5694f1;
-			text-decoration:none;
+			text-decoration:underline;
 		}
 
 /*Transitions*/
