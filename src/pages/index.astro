@@ -23,9 +23,9 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 <Layout>
   <Header />
   <main id="main-content" data-layout="index">
-    <section id="hero" class="pt-8 pb-6">
+    <!-- <section id="hero" class="pt-8 pb-6">
       <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        Mingalaba
+        I'm Jeremy Stewart
       </h1>
       <a
         target="_blank"
@@ -43,34 +43,14 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
       </a>
 
       <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
+        Welcome to my personal blog and portfolio where I share my thoughts,
+        projects, and experiences in web development and technology.
       </p>
-      <p class="mt-2">
-        Read the blog posts or check
-        <LinkButton
-          class="underline decoration-dashed underline-offset-4 hover:text-accent"
-          href="https://github.com/satnaing/astro-paper#readme"
-        >
-          README
-        </LinkButton> for more info.
-      </p>
-      {
-        // only display if at least one social link is enabled
-        SOCIALS.length > 0 && (
-          <div class="mt-4 flex flex-col sm:flex-row sm:items-center">
-            <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">Social Links:</div>
-            <Socials />
-          </div>
-        )
-      }
     </section>
 
-    <Hr />
+    <Hr /> -->
 
-    {
+    <!-- {
       featuredPosts.length > 0 && (
         <>
           <section id="featured" class="pt-12 pb-6">
@@ -84,7 +64,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
           {recentPosts.length > 0 && <Hr />}
         </>
       )
-    }
+    } -->
 
     {
       recentPosts.length > 0 && (
