@@ -14,24 +14,26 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout title={`${frontmatter.title} | ${SITE.title}`}>
-  <header>
-    <span class="header-logo">
-      <a href="/">JS</a>
-    </span>
-    <nav>
-      <a href="/posts">Posts</a>
-      <a href="/about">About</a>
-    </nav>
-  </header>
-  <div class="wrapper">
-    <main id="main-content" data-layout="about">
-      <div class="section">
-        <h2>{frontmatter.title}</h2>
-      </div>
-      <section id="about" class="app-prose">
-        <slot />
-      </section>
-    </main>
-    <Footer />
+  <div class="page-container">
+    <header>
+      <span class="header-logo">
+        <a href="/">JS</a>
+      </span>
+      <nav>
+        <a href="/posts">Posts</a>
+        <a href="/about">About</a>
+      </nav>
+    </header>
+    <div class="wrapper">
+      <main id="main-content" data-layout="about">
+        <div class="section header-page">
+          <h2>{frontmatter.title}</h2>
+        </div>
+        <section id="about" class="app-prose">
+          <slot />
+        </section>
+      </main>
+      <Footer />
+    </div>
   </div>
 </Layout>
