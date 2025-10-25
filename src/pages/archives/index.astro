@@ -1,8 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import Main from "@/layouts/Main.astro";
 import Layout from "@/layouts/Layout.astro";
-import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import Card from "@/components/Card.astro";
 import getPostsByGroupCondition from "@/utils/getPostsByGroupCondition";
@@ -32,22 +30,35 @@ const months = [
 ---
 
 <Layout title={`Archives | ${SITE.title}`}>
-  <Header />
-  <Main pageTitle="Archives" pageDesc="All the articles I've archived.">
-    {
-      Object.entries(
-        getPostsByGroupCondition(posts, post =>
-          post.data.pubDatetime.getFullYear()
-        )
-      )
-        .sort(([yearA], [yearB]) => Number(yearB) - Number(yearA))
-        .map(([year, yearGroup]) => (
-          <div>
-            <span class="text-2xl font-bold">{year}</span>
-            <sup class="text-sm">{yearGroup.length}</sup>
-            {Object.entries(
-              getPostsByGroupCondition(
-                yearGroup,
+  <div class="page-container">
+    <header>
+      <span class="header-logo">
+        <a href="/">JS</a>
+      </span>
+      <nav>
+        <a href="/posts">Posts</a>
+        <a href="/about">About</a>
+      </nav>
+    </header>
+    <div class="wrapper">
+      <main id="main-content" class="archives-content">
+        <div class="section header-page">
+          <h2>Archives</h2>
+        </div>
+        {
+          Object.entries(
+            getPostsByGroupCondition(posts, post =>
+              post.data.pubDatetime.getFullYear()
+            )
+          )
+            .sort(([yearA], [yearB]) => Number(yearB) - Number(yearA))
+            .map(([year, yearGroup]) => (
+              <div>
+                <span class="text-2xl font-bold">{year}</span>
+                <sup class="text-sm">{yearGroup.length}</sup>
+                {Object.entries(
+                  getPostsByGroupCondition(
+                    yearGroup,
                 post => post.data.pubDatetime.getMonth() + 1
               )
             )
@@ -77,7 +88,9 @@ const months = [
               ))}
           </div>
         ))
-    }
-  </Main>
-  <Footer />
+        }
+      </main>
+      <Footer />
+    </div>
+  </div>
 </Layout>
