@@ -28,7 +28,7 @@ a {
 }
 
 a:hover {
-  background-color: var(--accent-hover);
+  background-color: var(--js-yellow);
 }
 
 a:visited {
@@ -129,13 +129,9 @@ pre code {
 /* Horizontal rule - classic bevel */
 hr {
   border: none;
-  height: 2px;
-  background: linear-gradient(to right, 
-    var(--border-light) 0%, 
-    var(--border-light) 50%, 
-    var(--border-dark) 50%, 
-    var(--border-dark) 100%);
-  margin: 1rem 0;
+  height: 1px;
+  background: var(--border-dark);
+  margin: 2rem 0;
 }
 
 /* Lists */
