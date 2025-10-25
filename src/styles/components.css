@@ -68,6 +68,12 @@ button:disabled,
   cursor: not-allowed;
 }
 
+.theme-switcher {
+  background: none;
+  box-shadow: none;
+  border: none;
+}
+
 /* Form elements */
 input[type="text"],
 input[type="email"],

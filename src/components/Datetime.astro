@@ -34,11 +34,11 @@ const datetime = dayjs(isModified ? modDatetime : pubDatetime).tz(
 const date = datetime.format("D MMM, YYYY"); // e.g., '22 Mar, 2025'
 ---
 
-<div class:list={["flex items-center gap-x-2 opacity-80", className]}>
+<div class:list={["flex items-center gap-x-1 opacity-90", className]}>
   <IconCalendar
     class:list={[
-      "inline-block size-6 min-w-[1.375rem]",
-      { "scale-90": size === "sm" },
+      "inline-block size-5 min-w-[1.275rem] me-1",
+      { "scale-80": size === "sm" },
     ]}
     style="color: var(--foreground-muted);"
   />

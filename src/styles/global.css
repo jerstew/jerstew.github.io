@@ -14,6 +14,7 @@ html[data-theme="light"] {
   --foreground-muted: #333333;
   --accent: #000080;
   --accent-hover: #c0c0c0;
+  --accent-hover-alt: #203950;
   --border-light: #ffffff;
   --border-dark: #808080;
   --border-medium: #c0c0c0;
@@ -30,6 +31,7 @@ html[data-theme="dark"] {
   --foreground-muted: #b8b8b8;
   --accent: #7eb3d4;
   --accent-hover: #5a8aaa;
+  --accent-hover-alt: #203950;
   --border-light: #5a5a5a;
   --border-dark: #1a1a1a;
   --border-medium: #4a4a4a;
@@ -45,10 +47,12 @@ html[data-theme="dark"] {
   --color-foreground-muted: var(--foreground-muted);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
+  --color-accent-hover-alt: var(--accent-hover-alt);
   --color-border-light: var(--border-light);
   --color-border-dark: var(--border-dark);
   --color-border-medium: var(--border-medium);
   --color-header-bg: var(--header-bg);
+  --color-js-yellow: var(--js-yellow);
 }
 
 @layer base {
@@ -111,7 +115,6 @@ header {
   width: 100%;
   @media (max-width: 768px) {
     padding: 0.5rem 1rem;
-    margin-top: 2rem;
   }
 }
 
@@ -119,17 +122,18 @@ header {
 header .header-logo a {
   display: block;
   background-color: transparent;
-  padding: 0.075rem 0.4rem 0.15rem;
+  padding: 0.075rem 0.5rem 0.15rem;
   text-align: center;
   font-size: 1.5rem;
   font-weight: 600;
 }
   header .header-logo a:hover {
-    background-color: var(--js-yellow);
+    background-color: var(--color-js-yellow);
+    color: #203950;
   }
 
 header a {
-  color: var(--accent) !important;
+  color: var(--accent);
   text-decoration: none;
   font-size: 1.3rem;
   font-weight: bold;
@@ -141,7 +145,7 @@ header nav {
 }
 
 header nav a {
-  color: var(--accent) !important;
+  color: var(--accent);
   font-size: 1rem;
   text-decoration: none;
   font-weight: 500;
@@ -152,6 +156,7 @@ header nav a {
 
 header nav a:hover {
   background-color: var(--js-yellow);
+  color: var(--color-accent-hover-alt);
 }
 
 /* Page container - wraps header and wrapper with shadow/depth */
@@ -187,7 +192,7 @@ header nav a:hover {
 /* Main content area inside wrapper */
 main {
   background-color: var(--surface-alt) !important;
-  padding: 2rem;
+  padding: 0;
   color: var(--foreground) !important;
   text-align: left;
   flex: 1;
@@ -204,6 +209,14 @@ main p {
   font-size: 1rem;
   line-height: 1.5;
   margin: 0 0 1.5rem 0;
+}
+
+main section {
+  padding: 1rem 2rem;
+}
+
+.index-content {
+  padding: 2rem;
 }
 
 /* Post content styling */
@@ -234,16 +247,26 @@ main.flex-center {
 
 /* Back button wrapper - positioned inside post-content */
 .back-button-wrapper {
-  padding: 0 2rem;
+  padding: 0 1.6rem;
   margin-top: 2rem;
   margin-bottom: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: calc(60vw - 4rem);
+  @media (max-width: 1400px) {
+    max-width: calc(90% - 4rem);
+  }
+  @media (max-width: 768px) {
+    max-width: calc(95% - 4rem);
+  }
 }
 
   .back-button-wrapper a {
     padding: 0.25rem 0.5rem 0.25rem 0.125rem;
   }
     .back-button-wrapper a:hover {
-      background-color: var(--js-yellow);
+      background-color: var(--color-js-yellow);
     }
 
 /* Search content styling */
@@ -267,7 +290,6 @@ main.flex-center {
 /* Intro box */
 .intro-box {
   background-color: var(--surface) !important;
-  border: 2px solid var(--border-medium);
   padding: 1.5rem;
   box-shadow: 
     inset 2px 2px 0px var(--border-light), 
@@ -290,6 +312,10 @@ main.flex-center {
   margin-top: 2.5rem;
 }
 
+.index-content .section {
+  margin-top: 2rem;
+}
+
 .section h2 {
   color: var(--accent) !important;
   font-size: 1.2rem;
@@ -299,8 +325,22 @@ main.flex-center {
 }
 
 .section.header-page {
+  background-color: #dddddd;
+  border-bottom: 1px solid var(--border-dark);
   margin-top: 0;
+  margin-bottom: 1.5rem;
+  padding: 0 2rem;
 }
+  .header-page h2 {
+    background-color: #FFF;
+    border-left: 1px solid var(--border-dark);
+    border-right: 1px solid var(--border-dark);
+    border-bottom: none;
+    display: inline-block;
+    margin-bottom: 0;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+  }
 
 /* Lists */
 ul {
@@ -314,7 +354,7 @@ ul li {
   color: var(--foreground-muted) !important;
 }
 
-ul li a {
+ul:not('.posts') li a {
   color: var(--accent) !important;
   text-decoration: underline;
 }
@@ -322,6 +362,15 @@ ul li a {
 ul li a:hover {
   color: var(--accent) !important;
   background-color: transparent;
+}
+
+.posts > li > a:hover {
+  text-decoration: underline !important;
+}
+
+.post-content article {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 /* Tag list styling - tags in post details */
@@ -420,7 +469,7 @@ button[data-button="back-to-top"] span {
 footer {
   background-color: var(--header-bg) !important;
   border-top: 1px solid var(--border-dark);
-  padding: 1rem 2rem;
+  padding: 0.25rem 2rem;
   text-align: center;
   font-size: 0.8rem;
   color: var(--foreground-muted) !important;
@@ -440,10 +489,20 @@ footer svg {
 
 /* Pagination wrapper */
 .pagination-wrapper {
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border-medium);
+  border-top: 1px solid var(--border-dark);
+  margin-top: 1rem;
+  padding-top: 1.5rem;
 }
+  .pagination-wrapper a {
+    position: relative;
+    top: 0.08rem;
+    padding: 0.25rem 0.5rem;
+    text-decoration: none;
+  }
+    .pagination-wrapper svg {
+      position: relative;
+      top: -0.05rem;
+    }
 
 /* About page content */
 #about {
@@ -477,7 +536,7 @@ footer svg {
 
 .active-nav {
   color: var(--accent) !important;
-  background-color: var(--js-yellow);
+  background-color: var(--color-js-yellow);
   text-decoration: underline wavy;
   text-underline-offset: 4px;
 }

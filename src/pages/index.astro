@@ -24,7 +24,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
       </nav>
     </header>
     <div class="wrapper">
-      <main id="main-content" data-layout="index">
+      <main id="main-content" data-layout="index" class="index-content">
         <div class="intro-box">
           <h1>Hello, I'm Jeremy Stewart</h1>
           <p>Full-stack software engineer building practical, reliable web applications.<br/>
@@ -35,7 +35,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
           recentPosts.length > 0 && (
             <div class="section">
               <h2>Recent Posts</h2>
-              <ul>
+              <ul class="posts">
                 {recentPosts.map(
                   (data, index) =>
                     index < SITE.postPerIndex && <Card variant="h3" {...data} />
