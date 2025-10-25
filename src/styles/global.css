@@ -1,57 +1,319 @@
 @import "tailwindcss";
 @import "./typography.css";
+@import "./components.css";
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 :root,
 html[data-theme="light"] {
-  --background: #fdfdfd;
-  --foreground: #282728;
-  --accent: #006cac;
-  --muted: #e6e6e6;
-  --border: #ece9e9;
+  /* Windows 2000 Pro inspired palette */
+  --background: #d4d0c8;
+  --surface: #f2f2f2;
+  --surface-alt: #ffffff;
+  --foreground: #000000;
+  --foreground-muted: #333333;
+  --accent: #000080;
+  --accent-hover: #c0c0c0;
+  --border-light: #ffffff;
+  --border-dark: #808080;
+  --border-medium: #c0c0c0;
+  --header-bg: #ece9d8;
 }
 
 html[data-theme="dark"] {
-  --background: #212737;
-  --foreground: #eaedf3;
-  --accent: #ff6b01;
-  --muted: #343f60;
-  --border: #ab4b08;
+  /* Dark mode: Muted, calm aesthetic */
+  --background: #2a2a2a;
+  --surface: #3a3a3a;
+  --surface-alt: #4a4a4a;
+  --foreground: #e8e8e8;
+  --foreground-muted: #b8b8b8;
+  --accent: #7eb3d4;
+  --accent-hover: #5a8aaa;
+  --border-light: #5a5a5a;
+  --border-dark: #1a1a1a;
+  --border-medium: #4a4a4a;
+  --header-bg: #323232;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
   --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
   --color-accent: var(--accent);
-  --color-muted: var(--muted);
-  --color-border: var(--border);
+  --color-accent-hover: var(--accent-hover);
+  --color-border-light: var(--border-light);
+  --color-border-dark: var(--border-dark);
+  --color-border-medium: var(--border-medium);
+  --color-header-bg: var(--header-bg);
 }
 
 @layer base {
   * {
-    @apply border-border outline-accent/75;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     scrollbar-width: auto;
-    scrollbar-color: var(--color-muted) transparent;
+    scrollbar-color: var(--border-medium) transparent;
   }
+
   html {
-    @apply overflow-y-scroll scroll-smooth;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
   }
+
   body {
-    @apply flex min-h-svh flex-col bg-background font-mono text-foreground selection:bg-accent/75 selection:text-background;
+    background-color: var(--background) !important;
+    color: var(--foreground) !important;
+    font-family: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
   }
-  a,
+
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+
+  a:visited {
+    color: var(--accent);
+    opacity: 0.9;
+  }
+
   button {
-    @apply outline-offset-1 outline-accent focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-dashed;
+    cursor: pointer;
   }
+
   button:not(:disabled),
   [role="button"]:not(:disabled) {
     cursor: pointer;
   }
-  section,
-  footer {
-    @apply mx-auto max-w-app px-4;
+}
+
+/* Header wrapper - contains header and positioned outside wrapper */
+header {
+  background-color: var(--header-bg) !important;
+  border: 2px solid var(--border-dark);
+  border-bottom: 1px solid var(--border-dark);
+  padding: 0.75rem 1.5rem;
+  margin: 3rem auto 0 auto;
+  position: relative;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--foreground) !important;
+  width: 100%;
+  max-width: 60vw;
+  min-width: 320px;
+  @media (max-width: 1400px) {
+    max-width: 90%;
   }
+  @media (max-width: 768px) {
+    max-width: 95%;
+    padding: 0.5rem 1rem;
+    margin: 2rem auto 0 auto;
+  }
+}
+
+
+header .header-logo a {
+  display: block;
+  background-color: yellow;
+  padding: 0.075rem 0.4rem 0.15rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+  header .header-logo a:hover {
+    background-color: orange;
+  }
+
+header a {
+  color: var(--accent) !important;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+header nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+header nav a {
+  color: var(--accent) !important;
+  font-size: 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.2rem 0.4rem;
+  border-radius: 2px;
+  transition: background-color 0.2s ease;
+}
+
+header nav a:hover {
+  background-color: var(--accent-hover);
+}
+
+/* Main wrapper container */
+.wrapper {
+  background-color: var(--surface) !important;
+  border: 2px solid var(--border-dark);
+  border-top: none;
+  box-shadow: 
+    inset 2px 2px 0px var(--border-light), 
+    inset -2px -2px 0px var(--border-dark);
+  border-radius: 0 0 4px 4px;
+  overflow: hidden;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 60vw;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 1400px) {
+    max-width: 90%;
+  }
+  @media (max-width: 768px) {
+    max-width: 95%;
+  }
+}
+
+/* Main content area inside wrapper */
+main {
+  background-color: var(--surface-alt) !important;
+  padding: 2rem;
+  color: var(--foreground) !important;
+  text-align: left;
+  flex: 1;
+}
+
+main h1 {
+  color: var(--accent) !important;
+  font-size: 1.8rem;
+  margin: 0 0 0.5rem 0;
+}
+
+main p {
+  color: var(--foreground-muted) !important;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0 0 1.5rem 0;
+}
+
+/* Intro box */
+.intro-box {
+  background-color: var(--surface) !important;
+  border: 2px solid var(--border-medium);
+  padding: 1.5rem;
+  box-shadow: 
+    inset 2px 2px 0px var(--border-light), 
+    inset -2px -2px 0px var(--border-dark);
+  border-radius: 2px;
+  margin-bottom: 1.5rem;
+}
+
+.intro-box h1 {
+  color: var(--accent) !important;
+}
+
+.intro-box p {
+  color: var(--foreground-muted) !important;
+  margin-bottom: 0.75rem;
+}
+
+/* Sections */
+.section {
+  margin-top: 2.5rem;
+}
+
+.section h2 {
+  color: var(--accent) !important;
+  font-size: 1.2rem;
+  margin: 0 0 0.75rem 0;
+  border-bottom: 1px solid var(--border-medium);
+  padding-bottom: 0.1rem;
+}
+
+/* Lists */
+ul {
+  list-style: none;
+  padding: 0;
+  color: var(--foreground-muted) !important;
+}
+
+ul li {
+  margin-bottom: 0.5rem;
+  color: var(--foreground-muted) !important;
+}
+
+ul li a {
+  color: var(--accent) !important;
+  text-decoration: underline;
+}
+
+ul li a:hover {
+  color: var(--accent) !important;
+  background-color: transparent;
+}
+
+/* Footer inside wrapper */
+footer {
+  background-color: var(--header-bg) !important;
+  border-top: 2px solid var(--border-dark);
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--foreground-muted) !important;
+  border-radius: 0 0 4px 4px;
+  margin-top: auto;
+}
+
+footer p {
+  margin: 0;
+  color: var(--foreground-muted) !important;
+}
+
+footer svg {
+  color: var(--foreground-muted) !important;
+  fill: var(--foreground-muted) !important;
+}
+
+/* Pagination wrapper */
+.pagination-wrapper {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-medium);
+}
+
+/* About page content */
+#about {
+  color: var(--foreground) !important;
+  line-height: 1.6;
+}
+
+#about h1,
+#about h2,
+#about h3,
+#about h4,
+#about h5,
+#about h6 {
+  color: var(--accent) !important;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+#about p {
+  color: var(--foreground) !important;
+  margin-bottom: 1rem;
+}
+
+#about a {
+  color: var(--accent) !important;
 }
 
 @utility max-w-app {
@@ -59,11 +321,13 @@ html[data-theme="dark"] {
 }
 
 .active-nav {
-  @apply underline decoration-wavy decoration-2 underline-offset-4;
+  color: var(--accent) !important;
+  background-color: var(--accent-hover);
+  text-decoration: underline wavy;
+  text-underline-offset: 4px;
 }
 
 /* Source: https://piccalil.li/blog/a-more-modern-css-reset/ */
-/* Anything that has been anchored to should have extra scroll margin */
 :target {
   scroll-margin-block: 1rem;
 }

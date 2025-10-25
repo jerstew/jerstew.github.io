@@ -1,8 +1,6 @@
 ---
-import Hr from "./Hr.astro";
 import IconX from "@/assets/icons/IconX.svg";
 import IconMoon from "@/assets/icons/IconMoon.svg";
-import IconSearch from "@/assets/icons/IconSearch.svg";
 import IconArchive from "@/assets/icons/IconArchive.svg";
 import IconSunHigh from "@/assets/icons/IconSunHigh.svg";
 import IconMenuDeep from "@/assets/icons/IconMenuDeep.svg";
@@ -23,7 +21,7 @@ const isActive = (path: string) => {
 };
 ---
 
-<header>
+<header class="pt-12 sm:pt-16">
   <a
     id="skip-to-content"
     href="#main-content"
@@ -37,11 +35,12 @@ const isActive = (path: string) => {
   >
     <div
       id="top-nav-wrap"
-      class="relative flex w-full items-baseline justify-between bg-background p-4 sm:items-center sm:py-6"
+      class="relative flex w-full items-baseline justify-between p-0 sm:items-center sm:py-0"
     >
       <a
         href="/"
-        class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"
+        class="py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:text-2xl sm:leading-none"
+        style="color: var(--accent);"
       >
         {SITE.title}
       </a>
@@ -73,11 +72,11 @@ const isActive = (path: string) => {
               Posts
             </a>
           </li>
-          <li class="col-span-2">
+          <!-- <li class="col-span-2">
             <a href="/tags" class:list={{ "active-nav": isActive("/tags") }}>
               Tags
             </a>
-          </li>
+          </li> -->
           <li class="col-span-2">
             <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
               About
@@ -103,7 +102,7 @@ const isActive = (path: string) => {
               </li>
             )
           }
-          <li class="col-span-1 flex items-center justify-center">
+          <!-- <li class="col-span-1 flex items-center justify-center">
             <LinkButton
               href="/search"
               class:list={[
@@ -116,7 +115,7 @@ const isActive = (path: string) => {
               <IconSearch />
               <span class="sr-only">Search</span>
             </LinkButton>
-          </li>
+          </li> -->
           {
             SITE.lightAndDarkMode && (
               <li class="col-span-1 flex items-center justify-center">
@@ -137,7 +136,6 @@ const isActive = (path: string) => {
       </nav>
     </div>
   </div>
-  <Hr />
 </header>
 
 <script>
