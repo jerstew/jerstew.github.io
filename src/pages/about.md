@@ -3,10 +3,26 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-AstroPaper is a minimal, accessible and SEO-friendly blog theme built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/).
+**Name**: Jeremy Stewart
 
-![Astro Paper](public/astropaper-og.jpg)
+**Location**: New Orleans, Louisiana
 
-AstroPaper provides a solid foundation for blogs, or even portfolios\_ with full markdown support, built-in dark mode, and a clean layout that works out-of-the-box.
+**Role**: Full-Stack Software Engineer at DXC Technology
 
-The blog posts in this theme also serve as guides, docs or example articles\_ making AstroPaper a flexible starting point for your next content-driven site.
+**Experience**: Building for the web since 2009 (professional since 2011)
+
+**Background**: Self-taught engineer with extensive experience in healthcare and advertising industries
+
+**Focus Areas**:
+- Front-end development and accessibility
+- Full-stack web applications using TypeScript, JavaScript, and Go
+
+**Frameworks**: React, Angular, Flutter
+
+**Cloud platforms**: Azure and AWS
+
+**Approach**:
+Emphasizes practical, reliable solutions and modern development practices. Trained in Agile and Scrum methodologies, with experience leading and modernizing enterprise software projects.
+
+**Other Interests**:
+Explores AI-assisted development and automation tools to enhance software delivery and developer workflows.

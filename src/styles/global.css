@@ -247,11 +247,7 @@ main.flex-center {
 
 /* Back button wrapper - positioned inside post-content */
 .back-button-wrapper {
-  padding: 0 1.6rem;
-  margin-top: 2rem;
-  margin-bottom: 0.5rem;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 0;
   width: 100%;
   max-width: calc(60vw - 4rem);
   @media (max-width: 1400px) {
@@ -268,6 +264,10 @@ main.flex-center {
     .back-button-wrapper a:hover {
       background-color: var(--color-js-yellow);
     }
+  .back-button-wrapper svg {
+    position: relative;
+    top: 0.1rem;
+  }
 
 /* Search content styling */
 .search-content {
@@ -282,9 +282,13 @@ main.flex-center {
 .tag-content,
 .archives-content {
   background-color: var(--surface-alt) !important;
-  padding: 2rem;
+  /* padding: 2rem; */
   color: var(--foreground) !important;
   flex: 1;
+}
+
+.tags-body {
+  padding: 1rem 2rem;
 }
 
 /* Intro box */
@@ -324,7 +328,7 @@ main.flex-center {
   padding-bottom: 0.1rem;
 }
 
-.section.header-page {
+.section.header-page, .utility-bar {
   background-color: #dddddd;
   border-bottom: 1px solid var(--border-dark);
   margin-top: 0;
@@ -340,6 +344,17 @@ main.flex-center {
     margin-bottom: 0;
     padding: 0.5rem 0.75rem;
     font-size: 1rem;
+  }
+
+  .utility-bar a {
+    background-color: #FFF;
+    border-left: 1px solid var(--border-dark);
+    border-right: 1px solid var(--border-dark);
+    border-bottom: none;
+    margin-bottom: 0;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    text-decoration: none;
   }
 
 /* Lists */
@@ -493,7 +508,7 @@ footer svg {
   margin-top: 1rem;
   padding-top: 1.5rem;
 }
-  .pagination-wrapper a {
+  .pagination-wrapper a, .pagination-wrapper span {
     position: relative;
     top: 0.08rem;
     padding: 0.25rem 0.5rem;

@@ -45,9 +45,11 @@ const { page, tagName } = Astro.props;
         <div class="section header-page">
           <h2>Tag: {tagName}</h2>
         </div>
-        <ul>
-          {page.data.map(data => <Card {...data} />)}
-        </ul>
+        <section class="tags-body">
+          <ul>
+            {page.data.map(data => <Card {...data} />)}
+          </ul>
+        </section>
         <div class="pagination-wrapper">
           <Pagination {page} />
         </div>

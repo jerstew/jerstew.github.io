@@ -27,9 +27,11 @@ let tags = getUniqueTags(posts);
         <div class="section header-page">
           <h2>Tags</h2>
         </div>
-        <ul>
-          {tags.map(({ tag, tagName }) => <Tag {tag} {tagName} size="lg" />)}
-        </ul>
+        <section class="tags-body">
+          <ul>
+            {tags.map(({ tag, tagName }) => <Tag {tag} {tagName} size="lg" />)}
+          </ul>
+        </section>
       </main>
       <Footer />
     </div>
