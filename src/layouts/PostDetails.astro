@@ -1,6 +1,7 @@
 ---
 import { render, type CollectionEntry } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import Tag from "@/components/Tag.astro";
 import Datetime from "@/components/Datetime.astro";
@@ -81,15 +82,7 @@ const nextPost =
 
 <Layout {...layoutProps}>
   <div class="page-container">
-    <header>
-      <span class="header-logo">
-        <a href="/">JS</a>
-      </span>
-      <nav>
-        <a href="/posts">Posts</a>
-        <a href="/about">About</a>
-      </nav>
-    </header>
+    <Header />
     <div class="wrapper">
       <div class="utility-bar">
         <BackButton />

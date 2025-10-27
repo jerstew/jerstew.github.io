@@ -1,5 +1,6 @@
 ---
 import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
 import Layout from "./Layout.astro";
 import { SITE } from "@/config";
 
@@ -15,15 +16,7 @@ const { frontmatter } = Astro.props;
 
 <Layout title={`${frontmatter.title} | ${SITE.title}`}>
   <div class="page-container">
-    <header>
-      <span class="header-logo">
-        <a href="/">JS</a>
-      </span>
-      <nav>
-        <a href="/posts">Posts</a>
-        <a href="/about">About</a>
-      </nav>
-    </header>
+    <Header />
     <div class="wrapper">
       <main id="main-content" data-layout="about">
         <div class="section header-page">
