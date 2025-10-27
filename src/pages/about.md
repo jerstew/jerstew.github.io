@@ -26,3 +26,9 @@ Emphasizes practical, reliable solutions and modern development practices. Train
 
 **Other Interests**:
 Explores AI-assisted development and automation tools to enhance software delivery and developer workflows.
+
+<style>
+  ul {
+    margin-top: 0;
+  }
+<style>
