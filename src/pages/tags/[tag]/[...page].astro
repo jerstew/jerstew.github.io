@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import type { GetStaticPathsOptions } from "astro";
 import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import Card from "@/components/Card.astro";
 import Pagination from "@/components/Pagination.astro";
@@ -24,22 +25,12 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   });
 }
 
-const params = Astro.params;
-const { tag } = params;
 const { page, tagName } = Astro.props;
 ---
 
 <Layout title={`Tag: ${tagName} | ${SITE.title}`}>
   <div class="page-container">
-    <header>
-      <span class="header-logo">
-        <a href="/">JS</a>
-      </span>
-      <nav>
-        <a href="/posts">Posts</a>
-        <a href="/about">About</a>
-      </nav>
-    </header>
+    <Header />
     <div class="wrapper">
       <main id="main-content" class="tag-content">
         <div class="section header-page">
