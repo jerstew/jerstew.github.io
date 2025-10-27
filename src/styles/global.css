@@ -105,7 +105,7 @@ header {
   background-color: var(--header-bg) !important;
   border: none;
   border-bottom: 1px solid var(--border-dark);
-  padding: 0.75rem 2rem;
+  padding: 0.85rem 2.05rem 0.75rem;
   position: relative;
   z-index: 100;
   display: flex;
@@ -222,11 +222,15 @@ main section {
 /* Post content styling */
 .post-content {
   background-color: var(--surface-alt) !important;
-  padding: 2rem;
   color: var(--foreground) !important;
   text-align: left;
   flex: 1;
-  margin-left: auto;
+  margin: 0 2rem;
+  padding: 2rem;
+  border-left: 1px solid var(--border-dark);
+  border-right: 1px solid var(--border-dark);
+
+  /* margin-left: auto;
   margin-right: auto;
   width: 100%;
   max-width: calc(60vw - 4rem);
@@ -235,7 +239,7 @@ main section {
   }
   @media (max-width: 768px) {
     max-width: calc(95% - 4rem);
-  }
+  } */
 }
 
 /* Centered flex layout for 404 pages */
@@ -249,13 +253,13 @@ main.flex-center {
 .back-button-wrapper {
   padding: 0;
   width: 100%;
-  max-width: calc(60vw - 4rem);
+  /* max-width: calc(60vw - 4rem);
   @media (max-width: 1400px) {
     max-width: calc(90% - 4rem);
   }
   @media (max-width: 768px) {
     max-width: calc(95% - 4rem);
-  }
+  } */
 }
 
   .back-button-wrapper a {
@@ -351,10 +355,35 @@ main.flex-center {
     border-left: 1px solid var(--border-dark);
     border-right: 1px solid var(--border-dark);
     border-bottom: none;
+    color: var(--accent-hover-alt);
     margin-bottom: 0;
     padding: 0.5rem 0.75rem;
     font-size: 1rem;
     text-decoration: none;
+  }
+    .utility-bar a:hover {
+      color: var(--accent-hover-alt);
+    }
+
+.utility-bar {
+  margin-bottom: 0;
+}
+
+.utility-footer {
+  border-top: 1px solid var(--border-dark);
+  border-bottom: none;
+}
+
+.utility-back-top a {
+  text-decoration: none !important;
+  width: 100%;
+}
+  .utility-back-top a svg {
+    position: relative;
+    top: 0.0925rem;
+  }
+  .utility-back-top a:hover {
+    background-color: var(--color-js-yellow);
   }
 
 /* Lists */
@@ -433,7 +462,7 @@ ul li a:hover {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
-  margin: 2rem 0;
+  margin: 2rem 0 0;
 }
 
 .post-nav-grid a {
@@ -448,7 +477,7 @@ ul li a:hover {
 }
 
 .post-nav-grid a:hover {
-  background-color: var(--surface) !important;
+  background-color: var(--color-js-yellow);
 }
 
 .post-nav-grid a span:first-child {
@@ -466,18 +495,18 @@ ul li a:hover {
   align-items: flex-end;
 }
 
-/* Back to Top Button styling */
-button[data-button="back-to-top"] {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-button[data-button="back-to-top"] span {
-  display: flex;
+/* Back to Top Link styling */
+a[data-button="back-to-top"] {
+  display: inline-flex;
   align-items: center;
   gap: 0.25rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+a[data-button="back-to-top"]:hover,
+a[data-button="back-to-top"]:focus-visible {
+  text-decoration: underline;
 }
 
 /* Footer inside wrapper */
