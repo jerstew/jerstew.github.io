@@ -26,7 +26,7 @@ html[data-theme="dark"] {
   /* Dark mode: Muted, calm aesthetic */
   --background: #2a2a2a;
   --surface: #3a3a3a;
-  --surface-alt: #4a4a4a;
+  --surface-alt: #272727;
   --foreground: #e8e8e8;
   --foreground-muted: #b8b8b8;
   --accent: #7eb3d4;
@@ -201,6 +201,7 @@ main {
 main h1 {
   color: var(--accent) !important;
   font-size: 1.8rem;
+  font-weight: 500;
   margin: 0 0 0.5rem 0;
 }
 
@@ -374,17 +375,17 @@ main.flex-center {
   border-bottom: none;
 }
 
-.utility-back-top a {
-  text-decoration: none !important;
-  width: 100%;
-}
-  .utility-back-top a svg {
-    position: relative;
-    top: 0.0925rem;
+  .utility-back-top a {
+    text-decoration: none !important;
+    width: 100%;
   }
-  .utility-back-top a:hover {
-    background-color: var(--color-js-yellow);
-  }
+    .utility-back-top a svg {
+      position: relative;
+      top: 0.0925rem;
+    }
+    .utility-back-top a:hover {
+      background-color: var(--color-js-yellow);
+    }
 
 /* Lists */
 ul {
@@ -409,6 +410,10 @@ ul li a:hover {
 }
 
 .posts > li > a:hover {
+  text-decoration: underline !important;
+}
+
+.posts-list a:hover {
   text-decoration: underline !important;
 }
 
