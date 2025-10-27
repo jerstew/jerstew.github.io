@@ -11,56 +11,19 @@ import IconArrowNarrowUp from "@/assets/icons/IconArrowNarrowUp.svg";
     class="inline-flex items-center gap-1 text-accent hover:underline focus-visible:underline"
     title="Back to top"
   >
-    <IconArrowNarrowUp class="inline-block size-4" />
+    <IconArrowNarrowUp class="inline-block size-5 rtl:rotate-180" />
     <span>Back To Top</span>
   </a>
 </div>
 
-<script is:inline data-astro-rerun>
-  /** Scrolls the document to the top when
-   * the "Back to Top" button is clicked. */
-  function backToTop() {
-    const rootElement = document.documentElement;
-    const btnContainer = document.querySelector("#btt-btn-container");
-    const backToTopBtn = document.querySelector("[data-button='back-to-top']");
-
-    if (!rootElement || !btnContainer || !backToTopBtn)
-      return;
-
-    // Attach click event handler for back-to-top link
+<script is:inline>
+  /** Scrolls to the top when the "Back to Top" button is clicked. */
+  const backToTopBtn = document.querySelector("[data-button='back-to-top']");
+  if (backToTopBtn) {
     backToTopBtn.addEventListener("click", (e) => {
       e.preventDefault();
       document.body.scrollTop = 0; // For Safari
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     });
-
-    // Handle button visibility according to scroll position
-    let lastVisible = null;
-    function handleScroll() {
-      const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
-      const scrollTop = rootElement.scrollTop;
-
-      const isVisible = scrollTop / scrollTotal > 0.3;
-
-      if (isVisible !== lastVisible) {
-        btnContainer.classList.toggle("opacity-100", isVisible);
-        btnContainer.classList.toggle("translate-y-0", isVisible);
-        btnContainer.classList.toggle("opacity-0", !isVisible);
-        btnContainer.classList.toggle("translate-y-14", !isVisible);
-        lastVisible = isVisible;
-      }
-    }
-
-    let ticking = false;
-    document.addEventListener("scroll", () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          handleScroll();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    });
   }
-  backToTop();
 </script>
