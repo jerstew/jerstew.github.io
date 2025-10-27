@@ -26,9 +26,15 @@ const { page } = Astro.props;
           <h2>All Posts</h2>
         </div>
         <section class="posts-list">
-          <ul>
-            {page.data.map(data => <Card {...data} />)}
-          </ul>
+          {page.data.length > 0 ? (
+            <ul>
+              {page.data.map(data => <Card {...data} />)}
+            </ul>
+          ) : (
+            <p style="color: var(--foreground-muted); font-style: italic; padding: 1rem 2rem;">
+              This site is new. Posts will live here soon!
+            </p>
+          )}
         </section>
         <div class="pagination-wrapper">
           <Pagination {page} />
