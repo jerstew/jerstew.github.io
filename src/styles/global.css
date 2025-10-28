@@ -165,13 +165,14 @@ header nav a:hover {
   border-radius: 0 0 4px 4px;
   margin: 3rem auto 2rem;
   width: 100%;
-  max-width: 60vw;
+  /* max-width: 45vw; */
+  max-width: 980px;
   min-width: 320px;
   box-shadow: 
     0 4px 12px rgba(0, 0, 0, 0.08),
     0 2px 4px rgba(0, 0, 0, 0.04);
   @media (max-width: 1400px) {
-    max-width: 90%;
+    max-width: 80%;
   }
   @media (max-width: 768px) {
     max-width: 95%;
@@ -189,17 +190,24 @@ header nav a:hover {
   flex-direction: column;
 }
 
+.page-header {
+  padding: 0;
+}
+
 /* Main content area inside wrapper */
 main {
   background-color: var(--surface-alt) !important;
-  padding: 0;
+  border-left: 1px solid var(--border-dark);
+  border-right: 1px solid var(--border-dark);
   color: var(--foreground) !important;
   text-align: left;
   flex: 1;
+  margin: 0 2rem;
+  padding: 2rem;
 }
 
 main h1 {
-  color: var(--accent) !important;
+  color: var(--foreground-muted) !important;
   font-size: 1.8rem;
   font-weight: 500;
   margin: 0 0 0.5rem 0;
@@ -213,8 +221,16 @@ main p {
 }
 
 main section {
-  padding: 1rem 2rem;
+  padding: 0.5rem 0 1rem;
 }
+  main section h2.page-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+    /* border-bottom: 1px solid #666; */
+    /* padding-bottom: 0.25rem; */
+  }
 
 .index-content {
   padding: 2rem;
@@ -340,14 +356,14 @@ main.flex-center {
   margin-bottom: 1.5rem;
   padding: 0 2rem;
 }
-  .header-page h2 {
+  .header-page h2, .utility-bar h2 {
     background-color: #FFF;
     border-left: 1px solid var(--border-dark);
     border-right: 1px solid var(--border-dark);
     border-bottom: none;
     display: inline-block;
     margin-bottom: 0;
-    padding: 0.5rem 0.75rem;
+    padding: 0.5rem 2rem;
     font-size: 1rem;
   }
 
@@ -395,8 +411,8 @@ ul {
 }
 
 ul li {
-  margin-bottom: 0.5rem;
   color: var(--foreground-muted) !important;
+  margin: 0.25rem 0;
 }
 
 ul:not('.posts') li a {
@@ -559,8 +575,6 @@ footer svg {
   line-height: 1.6;
 }
 
-#about h1,
-#about h2,
 #about h3,
 #about h4,
 #about h5,
