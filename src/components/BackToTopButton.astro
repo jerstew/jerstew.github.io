@@ -18,12 +18,23 @@ import IconArrowNarrowUp from "@/assets/icons/IconArrowNarrowUp.svg";
 
 <script is:inline>
   /** Scrolls to the top when the "Back to Top" button is clicked. */
-  const backToTopBtn = document.querySelector("[data-button='back-to-top']");
-  if (backToTopBtn) {
-    backToTopBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      document.body.scrollTop = 0; // For Safari
-      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-    });
+  function initBackToTop() {
+    const backToTopBtn = document.querySelector("[data-button='back-to-top']");
+    if (backToTopBtn) {
+      backToTopBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
   }
+
+  // Initialize on page load
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initBackToTop);
+  } else {
+    initBackToTop();
+  }
+
+  // Re-initialize on Astro view transitions
+  document.addEventListener("astro:after-swap", initBackToTop);
 </script>
