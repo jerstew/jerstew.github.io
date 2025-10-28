@@ -2,6 +2,7 @@
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
 import Layout from "./Layout.astro";
+import BackButton from "@/components/BackButton.astro";
 import { SITE } from "@/config";
 
 export interface Props {
@@ -18,10 +19,17 @@ const { frontmatter } = Astro.props;
   <div class="page-container">
     <Header />
     <div class="wrapper">
+      <div class="utility-bar">
+        <BackButton />
+      </div>
       <main id="main-content" data-layout="about">
-        <div class="section header-page">
-          <h2>{frontmatter.title}</h2>
-        </div>
+        <section class="page-header">
+          <h1
+            class="inline-block text-2xl font-bold text-accent sm:text-3xl"
+          >
+            {frontmatter.title}
+          </h1>
+        </section>
         <section id="about" class="app-prose">
           <slot />
         </section>
