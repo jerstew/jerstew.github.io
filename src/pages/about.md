@@ -25,7 +25,7 @@ title: "About"
 Emphasizes practical, reliable solutions and modern development practices. Trained in Agile and Scrum methodologies, with experience leading and modernizing enterprise software projects.
 
 **Other Interests**:
-Explores AI-assisted development and automation tools to enhance software delivery and developer workflows.
+Exploring AI-assisted development and automation tools to enhance software delivery and developer workflows. Continuously learning and adapting to new technologies.
 
 <style>
   #about ul {
